@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import PageNotFound from '@/components/PageNotFound.vue'
+import Home from '@/views/Home.vue'
 
 Vue.use(VueRouter)
 
@@ -9,6 +10,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  { // Handle 404 errors
+    path: '*',
+    name: 'Page not found',
+    component: PageNotFound
   }
 ]
 
