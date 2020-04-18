@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import Vuex from 'vuex'
 import VueSocketIO from 'vue-socket.io'
 import App from './App.vue'
 import router from './router'
@@ -8,6 +9,8 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import store from './store'
 
 Vue.config.productionTip = false
+
+Vue.use(Vuex)
 
 Vue.use(new VueSocketIO({
   debug: true,
