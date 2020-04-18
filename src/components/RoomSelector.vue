@@ -81,16 +81,6 @@ export default {
 
     create_room_error (data) {
       this.showErrorAlert('Could not create room', data.error)
-    },
-
-    join_room_success (data) {
-      // TODO: dispatch room name to store
-      this.$router.push('/play')
-    },
-
-    create_room_success (data) {
-      // TODO: dispatch room name to store
-      this.$router.push('/play')
     }
   }
 }
