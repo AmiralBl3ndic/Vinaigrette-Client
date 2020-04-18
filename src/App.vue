@@ -7,15 +7,7 @@
       elevation="1"
     >
       <div class="d-flex align-center">
-        <v-img
-          alt="Vinaigrette Logo"
-          class="shrink mr-2"
-          contain
-          :src="require('./assets/vinaigrette-logo-transparent.svg')"
-          transition="scale-transition"
-          height="40"
-          width="40"
-        />
+        <VinaigretteLogo :size="40" transparent />
 
         <h1>Vinaigrette</h1>
       </div>
@@ -28,8 +20,14 @@
 </template>
 
 <script>
+import VinaigretteLogo from '@/components/VinaigretteLogo.vue'
+
 export default {
   name: 'App',
+
+  components: {
+    VinaigretteLogo
+  },
 
   data: () => ({
     //
