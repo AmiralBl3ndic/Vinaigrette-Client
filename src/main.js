@@ -1,12 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueSocketIO from 'vue-socket.io'
+import VueSweetAlert2 from 'vue-sweetalert2'
 import App from './App.vue'
 import router from './router'
 import vuetify from './plugins/vuetify'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 import store from './store'
+
+import '@sweetalert2/theme-dark/dark.min.css'
 
 Vue.config.productionTip = false
 
@@ -17,10 +20,11 @@ Vue.use(new VueSocketIO({
   connection: 'http://localhost:1664',
   vuex: {
     store,
-    actionPrefix: '',
-    mutationPrefix: ''
+    actionPrefix: 'SOCKET_'
   }
 }))
+
+Vue.use(VueSweetAlert2)
 
 new Vue({
   router,

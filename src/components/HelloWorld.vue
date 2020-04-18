@@ -8,7 +8,7 @@
       </v-col>
 
       <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3 accent--text">
+        <h1 class="display-3 font-weight-bold mb-3 accent--text">
           Welcome to Vinaigrette
         </h1>
       </v-col>
@@ -18,7 +18,6 @@
 
 <script>
 import VinaigretteLogo from '@/components/VinaigretteLogo.vue'
-
 export default {
   name: 'HelloWorld',
 
