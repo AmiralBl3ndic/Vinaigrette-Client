@@ -11,13 +11,15 @@ import store from './store'
 
 import '@sweetalert2/theme-dark/dark.min.css'
 
+import { serverUrl } from '@/config'
+
 Vue.config.productionTip = false
 
 Vue.use(Vuex)
 
 Vue.use(new VueSocketIO({
   debug: true,
-  connection: 'http://localhost:1664',
+  connection: serverUrl,
   vuex: {
     store,
     actionPrefix: 'SOCKET_'
