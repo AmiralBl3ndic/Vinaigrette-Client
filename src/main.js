@@ -7,7 +7,7 @@ import axios from 'axios'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@sweetalert2/theme-dark/dark.min.css'
-import 'vue2-dropzone/dist/vue2Dropzone.css'
+import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 
 import vuetify from './plugins/vuetify'
 import router from './router'
