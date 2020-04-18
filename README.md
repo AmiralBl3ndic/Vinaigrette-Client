@@ -1,5 +1,8 @@
 # vinaigrette-client
 
+This project relies on [Vinaigrette Server](https://github.com/AmiralBl3ndic/Vinaigrette), please install it and run the 
+`docker-compose up` command to get the required containers up and running.
+
 ## Project setup
 ```
 yarn install
