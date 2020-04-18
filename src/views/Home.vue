@@ -30,6 +30,10 @@ export default {
   components: {
     VinaigretteLogo,
     RoomSelector
+  },
+
+  mounted () {
+    this.$socket.emit('set_username', { username: 'Camille' })
   }
 }
 </script>
