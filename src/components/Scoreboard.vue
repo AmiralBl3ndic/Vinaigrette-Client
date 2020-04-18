@@ -20,10 +20,6 @@ export default {
   computed: {
     scoreboard () {
       return this.$store.state.scoreboard
-    },
-
-    successTextColor () {
-      return this.$vuetify.theme.themes.light.success
     }
   }
 }

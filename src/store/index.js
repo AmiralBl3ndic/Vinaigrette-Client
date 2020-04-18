@@ -47,7 +47,7 @@ export default new Vuex.Store({
       commit('SET_CURRENT_ROOM', '') // Remove current room
     },
 
-    /// Handles operations and mutations to perform when receiving the "scoreboard_update" socket event
+    /// Handles operations and mutations to perform when receiving the "scoreboard_update" socket
     SOCKET_scoreboard_update ({ commit }, { scoreboard }) {
       commit('SET_SCOREBOARD', scoreboard)
     }
