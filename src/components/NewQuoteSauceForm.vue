@@ -10,21 +10,21 @@
       prepend-icon="fa-quote-right"
       outlined />
 
-      <v-text-field
-        v-model="answer"
-        placeholder="Answer"
-        label="Answer"
-        hint="No, 42 isn't the answer"
-        prepend-icon="fa-hotdog"
-        outlined />
+    <v-text-field
+      v-model="answer"
+      placeholder="Answer"
+      label="Answer"
+      hint="No, 42 isn't the answer"
+      prepend-icon="fa-hotdog"
+      outlined />
 
-      <v-btn
-        type="submit"
-        color="accent"
-        class="ml-8"
-        large>
-        Submit this quote
-      </v-btn>
+    <v-btn
+      type="submit"
+      color="accent"
+      class="ml-8"
+      large>
+      Submit this quote
+    </v-btn>
   </v-form>
 </template>
 
