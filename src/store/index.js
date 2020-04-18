@@ -28,13 +28,18 @@ export default new Vuex.Store({
     /// Handles operations and mutations to perform when receiving the "join_room_success" socket event
     SOCKET_join_room_success ({ commit }, { roomName }) {
       commit('SET_CURRENT_ROOM', roomName)
-      router.push('/play')
+      router.push('/play') // Redirect player to view where he can play
     },
 
     /// Handles operations and mutations to perform when receiving the "create_room_success" socket event
     SOCKET_create_room_success ({ commit }, { roomName }) {
       commit('SET_CURRENT_ROOM', roomName)
-      router.push('/play')
+      router.push('/play') // Redirect player to view where he can play
+    },
+
+    /// Handles operations and mutations to perform when receiving the "leave_room_success" socket event
+    SOCKET_leave_room_success ({ commit }) {
+      commit('SET_CURRENT_ROOM', '') // Remove current room
     }
   },
   modules: {
