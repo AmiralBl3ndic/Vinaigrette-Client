@@ -10,7 +10,11 @@
 
 <script>
 export default {
+  name: 'Play',
 
+  beforeDestroy () {
+    this.$socket.emit('leave_room', { roomName: this.$store.state.currentRoom })
+  }
 }
 </script>
 
