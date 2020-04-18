@@ -17,6 +17,10 @@
     <v-container>
       <RoomSelector />
     </v-container>
+
+    <v-container fluid id="contribute">
+      <router-link to="contribute" class="title font-weight-regular">Contribute to Vinaigrette</router-link>
+    </v-container>
   </v-container>
 </template>
 
@@ -37,3 +41,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+#contribute {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+}
+</style>
