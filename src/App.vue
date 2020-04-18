@@ -19,17 +19,6 @@
 
         <h1>Vinaigrette</h1>
       </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>fas fa-external-link-alt</v-icon>
-      </v-btn>
     </v-app-bar>
 
     <v-content class="secondary">
