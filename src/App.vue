@@ -11,8 +11,9 @@
           alt="Vinaigrette Logo"
           class="shrink mr-2"
           contain
-          :src="require('./assets/vinaigrette-logo.svg')"
+          :src="require('./assets/vinaigrette-logo-transparent.png')"
           transition="scale-transition"
+          height="40"
           width="40"
         />
 
