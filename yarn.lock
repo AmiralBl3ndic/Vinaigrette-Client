@@ -869,6 +869,11 @@
   resolved "https://registry.yarnpkg.com/@soda/get-current-script/-/get-current-script-1.0.0.tgz#623aa40623550e3b94767cffeb096a6fb597ed09"
   integrity sha512-9GvTek+7cVw7r+L7TNGOG1astZJWXz2h5q4BqMXl28KN+24iSCm1xo+RhZOZvwdT3bzNe9hD7riJc/lBoO7mgg==
 
+"@sweetalert2/theme-dark@^3.1.4":
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/@sweetalert2/theme-dark/-/theme-dark-3.1.4.tgz#2d6186a9a1854e163493032dbf59366650d315eb"
+  integrity sha512-JiFqylrr7bKw1WSxyu7KmaIUq9iV7C1PD1Paaaxpvr1Bs4mK+lFJrV5TaGEECcke0wkV1koDyxBZllE7V7tRJg==
+
 "@types/color-name@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@types/color-name/-/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
