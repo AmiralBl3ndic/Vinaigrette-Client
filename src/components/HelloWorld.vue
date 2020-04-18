@@ -8,22 +8,28 @@
       </v-col>
 
       <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3 accent--text">
+        <h1 class="display-3 font-weight-bold mb-3 accent--text">
           Welcome to Vinaigrette
         </h1>
       </v-col>
     </v-row>
+
+    <v-container>
+      <RoomSelector />
+    </v-container>
   </v-container>
 </template>
 
 <script>
 import VinaigretteLogo from '@/components/VinaigretteLogo.vue'
+import RoomSelector from '@/components/RoomSelector.vue'
 
 export default {
   name: 'HelloWorld',
 
   components: {
-    VinaigretteLogo
+    VinaigretteLogo,
+    RoomSelector
   }
 }
 </script>
