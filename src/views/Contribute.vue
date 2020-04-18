@@ -1,9 +1,17 @@
 <template>
-  <div>Contribute</div>
+  <v-container>
+    <NewQuoteSauceForm />
+  </v-container>
 </template>
 
 <script>
+import NewQuoteSauceForm from '@/components/NewQuoteSauceForm'
+
 export default {
-  name: 'Contribute'
+  name: 'Contribute',
+
+  components: {
+    NewQuoteSauceForm
+  }
 }
 </script>
