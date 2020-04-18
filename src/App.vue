@@ -4,10 +4,11 @@
       app
       color="primary"
       dark
+      elevation="1"
     >
       <div class="d-flex align-center">
         <v-img
-          alt="Vuetify Logo"
+          alt="Vinaigrette Logo"
           class="shrink mr-2"
           contain
           :src="require('./assets/vinaigrette-logo.svg')"
@@ -15,14 +16,7 @@
           width="40"
         />
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+        <h1>Vinaigrette</h1>
       </div>
 
       <v-spacer></v-spacer>
@@ -37,21 +31,15 @@
       </v-btn>
     </v-app-bar>
 
-    <v-content>
-      <HelloWorld/>
+    <v-content class="secondary">
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-
 export default {
   name: 'App',
-
-  components: {
-    HelloWorld
-  },
 
   data: () => ({
     //
