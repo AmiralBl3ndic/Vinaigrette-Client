@@ -1,6 +1,9 @@
+import axios from 'axios'
+
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VueSocketIO from 'vue-socket.io'
+import VueAxios from 'vue-axios'
 import VueSweetAlert2 from 'vue-sweetalert2'
 import App from './App.vue'
 import router from './router'
@@ -25,6 +28,8 @@ Vue.use(new VueSocketIO({
     actionPrefix: 'SOCKET_'
   }
 }))
+
+Vue.use(VueAxios, axios)
 
 Vue.use(VueSweetAlert2)
 
