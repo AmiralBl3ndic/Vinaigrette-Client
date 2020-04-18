@@ -13,16 +13,23 @@
         </h1>
       </v-col>
     </v-row>
+
+    <v-container>
+      <RoomSelector />
+    </v-container>
   </v-container>
 </template>
 
 <script>
 import VinaigretteLogo from '@/components/VinaigretteLogo.vue'
+import RoomSelector from '@/components/RoomSelector.vue'
+
 export default {
   name: 'Home',
 
   components: {
-    VinaigretteLogo
+    VinaigretteLogo,
+    RoomSelector
   }
 }
 </script>
