@@ -23,23 +23,12 @@ export default {
       type: Boolean,
       default: false,
       required: false
-    },
-    class: {
-      default: ''
     }
-  },
-
-  beforeMount () {
-    console.log('Attributes:', this.$attrs)
   },
 
   computed: {
     image () {
       return this.$props.transparent ? transparentLogo : logo
-    },
-
-    classes () {
-      return this.$attrs.class
     }
   }
 }
