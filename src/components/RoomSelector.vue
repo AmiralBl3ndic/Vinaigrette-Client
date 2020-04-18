@@ -10,23 +10,12 @@
         <span class="headline">{{ room }}</span>
       </div>
     </v-container>
-
-    <v-snackbar v-model="error">
-
-    </v-snackbar>
   </div>
 </template>
 
 <script>
 export default {
   name: 'RoomSelector',
-
-  data () {
-    return {
-      error: false,
-      errorMessage: ''
-    }
-  },
 
   computed: {
     rooms () {
@@ -42,14 +31,20 @@ export default {
 
   sockets: {
     join_room_error (data) {
-      this.error = true
-      alert('Could not join room: ', data)
+      this.$swal({
+        icon: 'error',
+        titleText: 'Could not join room',
+        text: data.error,
+        customClass: {
+          container: 'primary'
+        },
+        confirmButtonColor: this.$vuetify.theme.themes.light.secondary
+      })
     },
 
     join_room_success (data) {
       console.log('Room joining success!', data)
-      // this.$socket.emit('leave_room', data)
-      // this.$router.push('/play')
+      this.$router.push('/play')
     }
   }
 }
