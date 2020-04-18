@@ -4,6 +4,12 @@
 
 <script>
 export default {
-  name: 'Scoreboard'
+  name: 'Scoreboard',
+
+  computed: {
+    scoreboard () {
+      return this.$store.state.scorebord
+    }
+  }
 }
 </script>
