@@ -14,7 +14,12 @@ Vue.use(Vuex)
 
 Vue.use(new VueSocketIO({
   debug: true,
-  connection: 'http://localhost:1664'
+  connection: 'http://localhost:1664',
+  vuex: {
+    store,
+    actionPrefix: '',
+    mutationPrefix: ''
+  }
 }))
 
 new Vue({
