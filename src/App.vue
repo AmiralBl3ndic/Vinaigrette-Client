@@ -9,7 +9,7 @@
       <div class="d-flex align-center">
         <VinaigretteLogo :size="40" transparent />
 
-        <h1>Vinaigrette</h1>
+        <router-link to="/"><h1 class="ml-2 white--text">Vinaigrette</h1></router-link>
       </div>
     </v-app-bar>
 
