@@ -8,7 +8,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     rooms: [],
-    currentRoom: ''
+    currentRoom: '',
+    scoreboard: []
   },
   mutations: {
     SET_ROOMS_LIST (state, payload) {
@@ -17,6 +18,10 @@ export default new Vuex.Store({
 
     SET_CURRENT_ROOM (state, payload) {
       state.currentRoom = payload
+    },
+
+    SET_SCOREBOARD (state, payload) {
+      state.scoreboard = payload.sort((a, b) => a.score - b.score)
     }
   },
   actions: {
@@ -40,6 +45,11 @@ export default new Vuex.Store({
     /// Handles operations and mutations to perform when receiving the "leave_room_success" socket event
     SOCKET_leave_room_success ({ commit }) {
       commit('SET_CURRENT_ROOM', '') // Remove current room
+    },
+
+    /// Handles operations and mutations to perform when receiving the "scoreboard_update" socket event
+    SOCKET_scoreboard_update ({ commit }, { scoreboard }) {
+      commit('SET_SCOREBOARD', scoreboard)
     }
   },
   modules: {
