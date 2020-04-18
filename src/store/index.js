@@ -9,7 +9,8 @@ export default new Vuex.Store({
   state: {
     rooms: [],
     currentRoom: '',
-    scoreboard: []
+    scoreboard: [],
+    gameStarted: false
   },
   mutations: {
     SET_ROOMS_LIST (state, payload) {
@@ -22,6 +23,10 @@ export default new Vuex.Store({
 
     SET_SCOREBOARD (state, payload) {
       state.scoreboard = payload.sort((a, b) => a.score - b.score)
+    },
+
+    SET_GAME_STARTED (state, payload) {
+      state.gameStarted = payload
     }
   },
   actions: {
@@ -31,14 +36,16 @@ export default new Vuex.Store({
     },
 
     /// Handles operations and mutations to perform when receiving the "join_room_success" socket event
-    SOCKET_join_room_success ({ commit }, { roomName }) {
+    SOCKET_join_room_success ({ commit }, { roomName, started }) {
       commit('SET_CURRENT_ROOM', roomName)
+      commit('SET_GAME_STARTED', started)
       router.push('/play') // Redirect player to view where he can play
     },
 
     /// Handles operations and mutations to perform when receiving the "create_room_success" socket event
-    SOCKET_create_room_success ({ commit }, { roomName }) {
+    SOCKET_create_room_success ({ commit }, { roomName, started }) {
       commit('SET_CURRENT_ROOM', roomName)
+      commit('SET_GAME_STARTED', started)
       router.push('/play') // Redirect player to view where he can play
     },
 
