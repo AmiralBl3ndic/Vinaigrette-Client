@@ -1,6 +1,6 @@
 <template>
   <v-form ref="imageForm" @submit.prevent="handleSubmission">
-    <h1 class="mb-4">Submit a new quote</h1>
+    <h1 class="mb-4">Submit a new image</h1>
 
     <v-file-input
       v-model="file"
