@@ -109,6 +109,7 @@ export default new Vuex.Store({
     SOCKET_new_round_sauce ({ commit }, payload) {
       commit('SET_SAUCE', payload)
       commit('SET_CAN_ANSWER', true)
+      commit('SET_RIGHT_ANSWER', '')
     },
 
     /// Handles operations and mutations to perform when receiving the "round_end" socket event
