@@ -47,10 +47,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.fixed-bottom {
-  position: fixed;
-  bottom: 10px;
-}
-</style>
