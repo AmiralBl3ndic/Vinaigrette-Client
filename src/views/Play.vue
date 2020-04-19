@@ -2,6 +2,10 @@
   <div class="fill-height d-flex">
 
     <v-container class="fill-height d-flex flex-row justify-space-between" :class="{'align-end': !gameStarted}">
+      <div v-if="roundRunning" id="timer">
+        <span class="light--text">{{ remainingTime }}s remaining</span>
+      </div>
+
       <ImageSauce v-if="displayImageSauce" />
       <QuoteSauce v-if="displayQuoteSauce" />
 
@@ -28,6 +32,13 @@ export default {
     QuoteSauce
   },
 
+  data () {
+    return {
+      remainingTime: 0,
+      roundRunning: false
+    }
+  },
+
   computed: {
     displayImageSauce () {
       return this.$store.getters.currentSauceType === 'image'
@@ -42,8 +53,30 @@ export default {
     }
   },
 
+  sockets: {
+    timer_update (remainingTime) {
+      this.remainingTime = remainingTime
+    },
+
+    new_round_sauce () {
+      this.roundRunning = true
+    },
+
+    round_end () {
+      this.roundRunning = false
+    }
+  },
+
   beforeDestroy () {
     this.$socket.emit('leave_room', { roomName: this.$store.state.currentRoom })
   }
 }
 </script>
+
+<style>
+#timer {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+</style>
