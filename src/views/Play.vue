@@ -9,6 +9,8 @@
       <ImageSauce v-if="displayImageSauce" />
       <QuoteSauce v-if="displayQuoteSauce" />
 
+      <AnswerInputField v-if="gameStarted && !found" />
+
       <StartGameButton class="" />
     </v-container>
 
@@ -21,6 +23,7 @@ import Scoreboard from '@/components/Scoreboard.vue'
 import StartGameButton from '@/components/StartGameButton.vue'
 import ImageSauce from '@/components/ImageSauce.vue'
 import QuoteSauce from '@/components/QuoteSauce.vue'
+import AnswerInputField from '@/components/AnswerInputField.vue'
 
 export default {
   name: 'Play',
@@ -29,13 +32,15 @@ export default {
     Scoreboard,
     StartGameButton,
     ImageSauce,
-    QuoteSauce
+    QuoteSauce,
+    AnswerInputField
   },
 
   data () {
     return {
       remainingTime: 0,
-      roundRunning: false
+      roundRunning: false,
+      found: false
     }
   },
 
@@ -60,10 +65,15 @@ export default {
 
     new_round_sauce () {
       this.roundRunning = true
+      this.found = false
     },
 
     round_end () {
       this.roundRunning = false
+    },
+
+    good_answer () {
+      this.found = true
     }
   },
 
