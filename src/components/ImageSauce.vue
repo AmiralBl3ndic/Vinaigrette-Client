@@ -5,12 +5,6 @@
       The correct answer was: “{{ rightAnswer }}”
     </h3>
 
-    <v-row>
-      <v-col cols="12" class="d-flex justify-center">
-
-      </v-col>
-    </v-row>
-
     <v-img
       :src="sauceSrc"
       max-height="350"
