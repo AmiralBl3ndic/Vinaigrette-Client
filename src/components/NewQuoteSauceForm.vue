@@ -22,6 +22,7 @@
       type="submit"
       color="accent"
       class="ml-8"
+      :disabled="!quote || !answer"
       large>
       Submit this quote
     </v-btn>
