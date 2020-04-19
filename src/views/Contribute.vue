@@ -2,10 +2,10 @@
   <v-container>
     <router-link to="/" class="d-flex align-center mt-5">
       <div>
-        <v-icon large class="primary--text">fas fa-arrow-left</v-icon>
+        <v-icon large class="light--text">fas fa-arrow-left</v-icon>
       </div>
       <div>
-        <span class="display-1 ml-2 primary--text no-underline">Back</span>
+        <span class="display-1 ml-2 light--text no-underline">Back</span>
       </div>
     </router-link>
 

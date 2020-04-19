@@ -1,5 +1,5 @@
 <template>
-  <v-form ref="quoteForm" @submit.prevent="handleSubmission">
+  <v-form ref="quoteForm" @submit.prevent="handleSubmission" class="light--text">
     <h1 class="mb-4">Submit a new quote</h1>
 
     <v-text-field

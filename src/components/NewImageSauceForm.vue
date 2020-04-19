@@ -1,6 +1,6 @@
 <template>
   <v-form ref="imageForm" @submit.prevent="handleSubmission">
-    <h1 class="mb-4">Submit a new image</h1>
+    <h1 class="mb-4 light--text">Submit a new image</h1>
 
     <v-file-input
       v-model="file"
@@ -9,7 +9,7 @@
       outlined
       @change="handleFileChange" />
 
-    <div class="d-flex justify-center mb-5">
+    <div class="d-flex justify-center mb-5 border">
       <v-img
         :src="imagePreview"
         v-if="imagePreview"
@@ -80,6 +80,7 @@ export default {
      */
     handleFileChange (file) {
       if (!file) {
+        this.imagePreview = ''
         return
       }
 
@@ -92,7 +93,6 @@ export default {
 
     async handleSubmission () {
       if (!this.file || !this.answer) {
-        console.log('test')
         return
       }
 
