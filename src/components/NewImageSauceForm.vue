@@ -6,7 +6,10 @@
       v-model="file"
       label="Image for your sauce"
       prepend-icon="fa-file-image"
-      outlined
+      filled
+      color="light"
+      background-color="light"
+      class="light--text"
       @change="handleFileChange" />
 
     <div class="d-flex justify-center mb-5 border">
@@ -21,10 +24,12 @@
     <v-text-field
       v-model="answer"
       placeholder="Answer"
-      label="Answer"
       hint="No, 42 isn't the answer"
       prepend-icon="fa-hotdog"
-      outlined />
+      class="light--text"
+      color="light"
+      background-color="light"
+      filled />
 
     <v-btn
       type="submit"

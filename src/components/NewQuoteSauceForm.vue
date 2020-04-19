@@ -5,18 +5,22 @@
     <v-text-field
       v-model="quote"
       placeholder="Quote"
-      label="Quote"
       hint="Private jokes are not a good idea: only a few people get them"
       prepend-icon="fa-quote-right"
-      outlined />
+      class="light--text my-2"
+      color="light"
+      background-color="light"
+      filled />
 
     <v-text-field
       v-model="answer"
       placeholder="Answer"
-      label="Answer"
       hint="No, 42 isn't the answer"
       prepend-icon="fa-hotdog"
-      outlined />
+      class="light--text my-2"
+      color="light"
+      background-color="light"
+      filled />
 
     <v-btn
       type="submit"
