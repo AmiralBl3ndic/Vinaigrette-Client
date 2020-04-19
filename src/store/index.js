@@ -16,6 +16,20 @@ export default new Vuex.Store({
   getters: {
     currentSauceType (state) {
       return state.currentSauce ? state.currentSauce.type : null
+    },
+
+    quoteSauce (state) {
+      if (state.currentSauce && state.currentSauce.type === 'quote') {
+        return state.currentSauce.quote
+      }
+      return null
+    },
+
+    imageSauce (state) {
+      if (state.currentSauce && state.currentSauce.type === 'image') {
+        return state.currentSauce.imageUrl
+      }
+      return ''
     }
   },
   mutations: {
