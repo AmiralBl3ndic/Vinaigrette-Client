@@ -2,11 +2,7 @@
   <div class="fill-height d-flex">
 
     <v-container>
-      <h1 class="display-4">Play view</h1>
-
-      <v-btn to="/" color="accent">
-        Go back to home
-      </v-btn>
+      <StartGameButton />
     </v-container>
 
     <Scoreboard style="flex-basis: 300px" />
@@ -15,12 +11,14 @@
 
 <script>
 import Scoreboard from '@/components/Scoreboard.vue'
+import StartGameButton from '@/components/StartGameButton.vue'
 
 export default {
   name: 'Play',
 
   components: {
-    Scoreboard
+    Scoreboard,
+    StartGameButton
   },
 
   beforeDestroy () {

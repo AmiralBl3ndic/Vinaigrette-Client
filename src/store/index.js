@@ -10,7 +10,13 @@ export default new Vuex.Store({
     rooms: [],
     currentRoom: '',
     scoreboard: [],
-    gameStarted: false
+    gameStarted: false,
+    currentSauce: null
+  },
+  getters: {
+    currentSauceType (state) {
+      return state.currentSauce ? state.currentSauce.type : null
+    }
   },
   mutations: {
     SET_ROOMS_LIST (state, payload) {
@@ -27,6 +33,10 @@ export default new Vuex.Store({
 
     SET_GAME_STARTED (state, payload) {
       state.gameStarted = payload
+    },
+
+    SET_SAUCE (state, payload) {
+      state.currentSauce = payload
     }
   },
   actions: {
@@ -52,11 +62,28 @@ export default new Vuex.Store({
     /// Handles operations and mutations to perform when receiving the "leave_room_success" socket event
     SOCKET_leave_room_success ({ commit }) {
       commit('SET_CURRENT_ROOM', '') // Remove current room
+      commit('SET_GAME_STARTED', false)
+      commit('SET_SAUCE', null)
     },
 
-    /// Handles operations and mutations to perform when receiving the "scoreboard_update" socket
+    /// Handles operations and mutations to perform when receiving the "scoreboard_update" socket event
     SOCKET_scoreboard_update ({ commit }, { scoreboard }) {
       commit('SET_SCOREBOARD', scoreboard)
+    },
+
+    /// Handles operations and mutations to perform when receiving the "game_start" socket event
+    SOCKET_game_start ({ commit }) {
+      commit('SET_GAME_STARTED', true)
+    },
+
+    /// Handles operations and mutations to perform when receiving the "game_end" socket event
+    SOCKET_game_end ({ commit }) {
+      commit('SET_GAME_STARTED', false)
+    },
+
+    /// Handles operations and mutations to perform when receiving the "new_round_sauce" socket event
+    SOCKET_new_round_sauce ({ commit }, payload) {
+      commit('SET_SAUCE', payload)
     }
   },
   modules: {
