@@ -10,7 +10,8 @@ export default new Vuex.Store({
     rooms: [],
     currentRoom: '',
     scoreboard: [],
-    gameStarted: false
+    gameStarted: false,
+    currentSauce: null
   },
   mutations: {
     SET_ROOMS_LIST (state, payload) {
@@ -27,6 +28,10 @@ export default new Vuex.Store({
 
     SET_GAME_STARTED (state, payload) {
       state.gameStarted = payload
+    },
+
+    SET_SAUCE (state, payload) {
+      state.currentSauce = payload
     }
   },
   actions: {
@@ -62,6 +67,11 @@ export default new Vuex.Store({
     /// Handles operations and mutations to perform when receiving the "game_start" socket event
     SOCKET_game_start ({ commit }) {
       commit('SET_GAME_STARTED', true)
+    },
+
+    /// Handles operations and mutations to perform when receiving the "game_end" socket event
+    SOCKET_game_end ({ commit }) {
+      commit('SET_GAME_STARTED', false)
     }
   },
   modules: {
