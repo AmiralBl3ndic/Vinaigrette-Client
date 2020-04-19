@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import PageNotFound from '@/components/PageNotFound.vue'
 import Home from '@/views/Home.vue'
 import Play from '@/views/Play.vue'
+import Contribute from '@/views/Contribute.vue'
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,11 @@ const routes = [
     path: '/play',
     name: 'Play',
     component: Play
+  },
+  {
+    path: '/contribute',
+    name: 'Contribute',
+    component: Contribute
   },
   { // Handle 404 errors
     path: '*',
