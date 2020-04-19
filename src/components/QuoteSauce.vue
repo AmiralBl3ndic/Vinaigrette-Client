@@ -14,7 +14,7 @@ export default {
 
   computed: {
     quote () {
-      return this.$store.state.currentSauce.quote
+      return this.$store.getters.quoteSauce
     }
   }
 }
