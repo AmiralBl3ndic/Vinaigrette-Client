@@ -37,7 +37,7 @@
       class="ml-8"
       :disabled="!file || !answer"
       large>
-      Submit this quote
+      Submit this image
     </v-btn>
   </v-form>
 </template>

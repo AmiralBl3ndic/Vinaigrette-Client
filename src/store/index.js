@@ -11,11 +11,27 @@ export default new Vuex.Store({
     currentRoom: '',
     scoreboard: [],
     gameStarted: false,
-    currentSauce: null
+    currentSauce: null,
+    canAnswer: false,
+    rightAnswer: ''
   },
   getters: {
     currentSauceType (state) {
       return state.currentSauce ? state.currentSauce.type : null
+    },
+
+    quoteSauce (state) {
+      if (state.currentSauce && state.currentSauce.type === 'quote') {
+        return state.currentSauce.quote
+      }
+      return null
+    },
+
+    imageSauce (state) {
+      if (state.currentSauce && state.currentSauce.type === 'image') {
+        return state.currentSauce.imageUrl
+      }
+      return ''
     }
   },
   mutations: {
@@ -37,6 +53,14 @@ export default new Vuex.Store({
 
     SET_SAUCE (state, payload) {
       state.currentSauce = payload
+    },
+
+    SET_CAN_ANSWER (state, payload) {
+      state.canAnswer = payload
+    },
+
+    SET_RIGHT_ANSWER (state, payload) {
+      state.rightAnswer = payload
     }
   },
   actions: {
@@ -84,6 +108,17 @@ export default new Vuex.Store({
     /// Handles operations and mutations to perform when receiving the "new_round_sauce" socket event
     SOCKET_new_round_sauce ({ commit }, payload) {
       commit('SET_SAUCE', payload)
+      commit('SET_CAN_ANSWER', true)
+    },
+
+    /// Handles operations and mutations to perform when receiving the "round_end" socket event
+    SOCKET_round_end ({ commit }) {
+      commit('SET_CAN_ANSWER', false)
+    },
+
+    /// Handles operations and mutations to perform when receiving the "right_answer" socket event
+    SOCKET_right_answer ({ commit }, { answer }) {
+      commit('SET_RIGHT_ANSWER', answer)
     }
   },
   modules: {
