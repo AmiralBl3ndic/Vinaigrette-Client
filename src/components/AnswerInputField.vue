@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-form ref="answerInputForm" @submit.prevent="tryAnswer">
+    <v-form ref="answerInputForm" @submit.prevent="tryAnswer" autocomplete="off">
       <v-text-field
         v-model="answer"
         autofocus
