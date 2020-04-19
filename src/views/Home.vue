@@ -3,7 +3,7 @@
     <v-row class="text-center">
       <v-col cols="12" justify="center">
         <v-row align="center">
-          <VinaigretteLogo :size="200" />
+          <VinaigretteLogo :size="300" />
         </v-row>
       </v-col>
 
