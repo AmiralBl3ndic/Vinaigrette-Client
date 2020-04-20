@@ -42,7 +42,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 #home-view {
   box-sizing: border-box;
   width: 100vw; max-width: 100vw;
@@ -55,7 +55,7 @@ export default {
     "rooms"
     "links";
 
-  grid-template-rows: auto auto 4%;
+  grid-template-rows: auto auto 40px;
 
   overflow: hidden;
 }
@@ -70,8 +70,12 @@ export default {
 
 .links {
   grid-area: links;
-  padding-left: 3%;
-  padding-bottom: 3%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 2%;
 }
 
 </style>
