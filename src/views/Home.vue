@@ -14,7 +14,7 @@
       </v-col>
     </v-row>
 
-    <div class="rooms">
+    <div class="rooms mb-12">
       <RoomSelector />
     </div>
 
@@ -55,7 +55,7 @@ export default {
     "rooms"
     "links";
 
-  grid-template-rows: auto auto 5%;
+  grid-template-rows: auto auto 4%;
 }
 
 .hero {
