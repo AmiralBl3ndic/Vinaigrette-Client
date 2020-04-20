@@ -1,4 +1,4 @@
-const serverUrl = 'http://localhost:1664'
+const serverUrl = 'https://server.vinaigrette.efrei.tech'
 const sauceAPIUrl = serverUrl + '/sauce'
 const quoteAPIUrl = sauceAPIUrl + '/quote'
 const imageAPIUrl = sauceAPIUrl + '/image'
