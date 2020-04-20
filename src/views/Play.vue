@@ -1,20 +1,23 @@
 <template>
-  <div class="fill-height d-flex">
+  <div id="play-view" class="fill-height d-flex">
 
-    <v-container class="fill-height d-flex flex-row justify-space-between" :class="{'align-end': !gameStarted}">
-      <div v-if="roundRunning" id="timer">
-        <span class="light--text">{{ remainingTime }}s remaining</span>
+    <div class="top-row mx-15">
+      <span v-if="roundRunning" class="light--text">{{ remainingTime }}s remaining</span>
+    </div>
+
+    <v-container class="content p0">
+      <div class="sauce-zone">
+        <ImageSauce v-if="displayImageSauce" class="maxw-100" />
+
+        <QuoteSauce v-if="displayQuoteSauce" />
+
+        <AnswerInputField v-if="gameStarted && !found" class="align-self-end" />
       </div>
 
-      <ImageSauce v-if="displayImageSauce" />
-      <QuoteSauce v-if="displayQuoteSauce" />
-
-      <AnswerInputField v-if="gameStarted && !found" />
-
-      <StartGameButton class="" />
+      <StartGameButton class="align-self-end" />
     </v-container>
 
-    <Scoreboard style="flex-basis: 300px" />
+    <Scoreboard class="scoreboard" />
   </div>
 </template>
 
@@ -84,9 +87,71 @@ export default {
 </script>
 
 <style>
-#timer {
-  position: absolute;
-  top: 10px;
-  left: 10px;
+#play-view {
+  box-sizing: border-box;
+  display: grid !important;
+
+  width: 100vw;
+  max-width: 100vw;
+
+  grid-template-areas:
+    "top-row scoreboard"
+    "content scoreboard";
+
+  grid-template-columns: 4fr 1fr;
 }
+
+.top-row {
+  grid-area: top-row;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  grid-area: content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 !important;
+}
+
+.sauce-zone {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.scoreboard {
+  grid-area: scoreboard;
+  max-width: 100vw;
+}
+
+.maxw-100 {
+  max-width: 100vw;
+  padding: 0;
+}
+
+@media screen and (max-width: 780px) {
+  #play-view {
+    grid-template-areas:
+      "top-row"
+      "content"
+      "scoreboard";
+
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 781px) {
+  #play-view {
+    grid-template-rows: 1fr 9fr;
+  }
+}
+
 </style>
