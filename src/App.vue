@@ -6,11 +6,18 @@
       dark
       elevation="1"
     >
+
       <div class="d-flex align-center">
         <VinaigretteLogo :size="40" transparent />
 
         <router-link to="/"><h1 class="ml-2 white--text">Vinaigrette</h1></router-link>
       </div>
+
+      <div class="login">
+      <button align="right" v-text="center">
+        <p>Login</p>
+      </button>
+    </div>
     </v-app-bar>
 
     <v-content class="secondary">
