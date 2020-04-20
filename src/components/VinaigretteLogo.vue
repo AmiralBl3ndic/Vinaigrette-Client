@@ -9,7 +9,6 @@
 
 <script>
 const logo = require('../assets/vinaigrette-logo.svg')
-const transparentLogo = require('../assets/vinaigrette-logo-transparent.svg')
 
 export default {
   name: 'VinaigretteLogo',
@@ -18,17 +17,12 @@ export default {
     size: {
       type: Number,
       required: true
-    },
-    transparent: {
-      type: Boolean,
-      default: false,
-      required: false
     }
   },
 
   computed: {
     image () {
-      return this.$props.transparent ? transparentLogo : logo
+      return logo
     }
   }
 }

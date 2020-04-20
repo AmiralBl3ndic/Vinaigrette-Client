@@ -1,19 +1,19 @@
 <template>
   <div>
     <v-row justify="center">
-      <h2 class="display-2">Available Rooms</h2>
+      <h2 class="display-2 light--text">Available Rooms</h2>
     </v-row>
 
     <v-container class="mx-12">
       <v-divider class="my-5" />
       <div v-for="(room, id) of rooms" :key="id" class="px-15 room-link" @click.stop="handleJoinRoom(room)">
-        <span class="headline">{{ room }}</span>
+        <span class="headline light--text">{{ room }}</span>
       </div>
 
       <v-form ref="createRoomForm" @submit.prevent="handleCreateRoom" class="mt-5">
         <v-row>
           <v-col md="8" offset-md="2" class="d-flex flex-column align-center">
-            <h2 class="display-1 my-4">Create a new room</h2>
+            <h2 class="display-1 my-4 light--text">Create a new room</h2>
           </v-col>
         </v-row>
 
@@ -23,7 +23,7 @@
           </v-col>
 
           <v-col cols="3" offset="0">
-            <v-btn block type="submit" color="accent" class="py-7">
+            <v-btn block type="submit" color="warning" class="py-7">
               Create
             </v-btn>
           </v-col>
