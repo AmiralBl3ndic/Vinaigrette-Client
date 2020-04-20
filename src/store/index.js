@@ -32,6 +32,14 @@ export default new Vuex.Store({
         return state.currentSauce.imageUrl
       }
       return ''
+    },
+
+    roomPlayers (state) {
+      return state.scoreboard.map(({ player }) => player)
+    },
+
+    chatParticipants (state) {
+      return state.scoreboard.map(({ player }) => ({ id: player, name: player }))
     }
   },
   mutations: {
