@@ -44,7 +44,7 @@ export default new Vuex.Store({
     },
 
     SET_SCOREBOARD (state, payload) {
-      state.scoreboard = payload.sort((a, b) => a.score - b.score)
+      state.scoreboard = payload.sort((a, b) => b.score - a.score)
     },
 
     SET_GAME_STARTED (state, payload) {
