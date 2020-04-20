@@ -6,7 +6,7 @@
 
     <v-container class="mx-12">
       <v-divider class="my-5" />
-      <div v-for="(room, id) of rooms" :key="id" class="px-15 room-link" @click.stop="handleJoinRoom(room)">
+      <div v-for="(room, id) of rooms" :key="id" class="my-2 px-15 room-link" @click.stop="handleJoinRoom(room)">
         <span class="headline light--text">{{ room }}</span>
       </div>
 
