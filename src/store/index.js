@@ -32,6 +32,14 @@ export default new Vuex.Store({
         return state.currentSauce.imageUrl
       }
       return ''
+    },
+
+    roomPlayers (state) {
+      return state.scoreboard.map(({ player }) => player)
+    },
+
+    chatParticipants (state) {
+      return state.scoreboard.map(({ player }) => ({ id: player, name: player }))
     }
   },
   mutations: {
@@ -44,7 +52,7 @@ export default new Vuex.Store({
     },
 
     SET_SCOREBOARD (state, payload) {
-      state.scoreboard = payload.sort((a, b) => a.score - b.score)
+      state.scoreboard = payload.sort((a, b) => b.score - a.score)
     },
 
     SET_GAME_STARTED (state, payload) {

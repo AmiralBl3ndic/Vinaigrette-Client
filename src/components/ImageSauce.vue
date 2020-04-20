@@ -8,7 +8,7 @@
     <v-img
       :src="sauceSrc"
       max-height="350"
-      class="justify-center full-width"
+      class="justify-center image-sauce mt-5 px-3"
       contain />
   </v-container>
 </template>
