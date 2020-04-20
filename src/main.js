@@ -4,6 +4,7 @@ import VueSocketIO from 'vue-socket.io'
 import VueAxios from 'vue-axios'
 import VueSweetAlert2 from 'vue-sweetalert2'
 import axios from 'axios'
+import Chat from 'vue-beautiful-chat'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@sweetalert2/theme-dark/dark.min.css'
@@ -31,6 +32,8 @@ Vue.use(new VueSocketIO({
 Vue.use(VueAxios, axios)
 
 Vue.use(VueSweetAlert2)
+
+Vue.use(Chat)
 
 new Vue({
   router,
