@@ -2,6 +2,7 @@
   <div id="play-view" class="fill-height d-flex">
 
     <div class="top-row mx-15">
+      <SignalButton @report="saucereported=true" class="signal_button" />
       <span v-if="roundRunning" class="light--text">{{ remainingTime }}s remaining</span>
     </div>
 
@@ -31,6 +32,7 @@ import StartGameButton from '@/components/StartGameButton.vue'
 import ImageSauce from '@/components/ImageSauce.vue'
 import QuoteSauce from '@/components/QuoteSauce.vue'
 import AnswerInputField from '@/components/AnswerInputField.vue'
+import SignalButton from '@/components/SignalButton.vue'
 
 export default {
   name: 'Play',
@@ -40,14 +42,16 @@ export default {
     StartGameButton,
     ImageSauce,
     QuoteSauce,
-    AnswerInputField
+    AnswerInputField,
+    SignalButton
   },
 
   data () {
     return {
       remainingTime: 0,
       roundRunning: false,
-      found: false
+      found: false,
+      saucereported: false
     }
   },
 
@@ -73,6 +77,7 @@ export default {
     new_round_sauce () {
       this.roundRunning = true
       this.found = false
+      this.saucereported = false
     },
 
     round_end () {
@@ -177,5 +182,10 @@ export default {
     grid-template-rows: 1fr 9fr;
     grid-template-columns: 75% 25%;
   }
+}
+
+.signal_button{
+  position: absolute;
+  left: 0;
 }
 </style>
