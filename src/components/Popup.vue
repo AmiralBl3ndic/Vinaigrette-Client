@@ -8,7 +8,7 @@
 export default {
   methods: {
     async showErrorAlert (title, textContent) {
-      const { value: username } = await this.$swal({
+      const { value: pseudo } = await this.$swal({
         title: 'want a new pseudo?',
         input: 'text',
         inputPlaceholder: 'Enter your new pseudo',
@@ -19,6 +19,9 @@ export default {
         },
         showCloseButton: true
       })
+      if (pseudo) {
+        this.$socket.emit('set_username', { username: this.pseudo })
+      }
     }
   }
 }
