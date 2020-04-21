@@ -14,7 +14,7 @@ export default {
         inputPlaceholder: 'Enter your new username',
         inputValidator: (value) => {
           if (!value) {
-            return 'You need to write something!'
+            return 'You have to choose a username ! '
           }
         },
         showCloseButton: true
