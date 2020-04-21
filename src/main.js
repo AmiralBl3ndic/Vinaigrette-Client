@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import VueSocketIO from 'vue-socket.io'
 import VueAxios from 'vue-axios'
 import VueSweetAlert2 from 'vue-sweetalert2'
+import VueCookies from 'vue-cookies'
 import axios from 'axios'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '@fortawesome/fontawesome-free/css/all.css'
@@ -31,6 +32,10 @@ Vue.use(new VueSocketIO({
 Vue.use(VueAxios, axios)
 
 Vue.use(VueSweetAlert2)
+
+Vue.use(VueCookies)
+
+Vue.$cookies.config('30d')
 
 new Vue({
   router,
