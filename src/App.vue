@@ -4,14 +4,17 @@
       app
       color="primary"
       dark
-      elevation="1"
-      id="appbar"
-    >
+      elevation="1">
+
       <div class="d-flex align-center">
         <VinaigretteLogo :size="40" transparent />
-
         <router-link to="/"><h1 class="ml-2 white--text">Vinaigrette</h1></router-link>
       </div>
+
+    <div class="mt-4 mb-3">
+      <Popup />
+    </div>
+
     </v-app-bar>
 
     <v-content class="secondary">
@@ -22,22 +25,17 @@
 
 <script>
 import VinaigretteLogo from '@/components/VinaigretteLogo.vue'
+import Popup from '@/components/Popup.vue'
 
 export default {
   name: 'App',
 
   components: {
-    VinaigretteLogo
+    VinaigretteLogo,
+    Popup
   },
-
   data: () => ({
-    //
+
   })
 }
 </script>
-
-<style>
-#appbar {
-  max-width: 100vw;
-}
-</style>
