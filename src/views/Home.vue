@@ -37,7 +37,7 @@ export default {
   },
 
   mounted () {
-    this.$socket.emit('set_username', { username: 'Default' })
+    this.$socket.emit('set_username', { username: '' })
   }
 }
 </script>

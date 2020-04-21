@@ -11,11 +11,6 @@
         <router-link to="/"><h1 class="ml-2 white--text">Vinaigrette</h1></router-link>
       </div>
 
-    <div>
-        <input v-model="username" placeholder="votre username">
-        <button type="button" v-on:click="login()">Login</button>
-    </div>
-
     <div class="mt-4 mb-3">
       <Popup />
     </div>
@@ -39,13 +34,6 @@ export default {
     VinaigretteLogo,
     Popup
   },
-
-  methods: {
-    login () {
-      this.$socket.emit('set_username', { username: this.username })
-    }
-  },
-
   data: () => ({
 
   })
