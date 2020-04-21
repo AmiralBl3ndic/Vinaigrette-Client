@@ -11,12 +11,12 @@
         <router-link to="/"><h1 class="ml-2 white--text">Vinaigrette</h1></router-link>
       </div>
 
-    </v-app-bar>
-
     <div>
-      <input type="text" name="username" v-model="input.username" placeholder="Username"/>
-      <button type="button" v-on:click="login()">Login</button>
+        <input v-model="username" placeholder="modifiez-moi">
+        <button type="button" v-on:click="login()">Login</button>
     </div>
+
+    </v-app-bar>
 
     <v-content class="secondary">
       <router-view></router-view>
