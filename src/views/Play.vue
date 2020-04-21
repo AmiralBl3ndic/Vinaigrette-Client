@@ -2,7 +2,7 @@
   <div id="play-view" class="fill-height d-flex">
 
     <div class="top-row mx-15">
-      <SignalButton @report="saucereported=true" class="signal_button" />
+      <SignalButton @report="() => {this.saucereported = true}" v-show="gameStarted && !saucereported" class="signal_button" />
       <span v-if="roundRunning" class="light--text">{{ remainingTime }}s remaining</span>
     </div>
 
