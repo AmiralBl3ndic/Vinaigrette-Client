@@ -12,7 +12,7 @@
       </div>
 
     <div>
-        <input v-model="username" placeholder="modifiez-moi">
+        <input v-model="username" placeholder="votre username ?">
         <button type="button" v-on:click="login()">Login</button>
     </div>
 
