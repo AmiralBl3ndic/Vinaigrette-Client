@@ -26,7 +26,7 @@ export default {
       participants: [], // name, id
       messageList: [], // the list of the messages to show, can be paginated and adjusted dynamically
       newMessagesCount: 0,
-      isChatOpen: true, // to determine whether the chat window should be open or closed
+      isChatOpen: false, // to determine whether the chat window should be open or closed
       colors: {
         header: {
           bg: '#4e8cff',
