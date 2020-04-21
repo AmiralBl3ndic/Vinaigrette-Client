@@ -22,7 +22,7 @@
     </v-container>
 
     <Scoreboard class="scoreboard" />
-    <Chat v-if="gameStarted && !found"/>
+    <Chat></Chat>
 
   </div>
 </template>
