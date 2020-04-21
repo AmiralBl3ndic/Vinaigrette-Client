@@ -1,9 +1,9 @@
 
 <template>
-	<div class="hello">
-		<h3>Text Box  with default text and place holder</h3>
-		<label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
-	</div>
+<div class="hello">
+<h3>Text Box  with default text and place holder</h3>
+<label-edit :text="text" id="labeledit1" v-on:text-updated="textUpdated" placeholder="Enter some text"></label-edit>
+</div>
 </template>
 
 <script>
@@ -16,16 +16,16 @@ export default {
     }
   },
   components: {
-    LabelEdit,
+    LabelEdit
   },
   methods: {
-    textUpdated: function(text){
-      this.text = text;
+    textUpdated: function (text) {
+      this.text = text
     },
-    handleSetUsername(text){
-        this.$socket.emit('set_username',{text})
+    handleSetUsername (text) {
+      this.$socket.emit('set_username',{text})
     }
-  },
- 
+  }
+
 }
 </script>
