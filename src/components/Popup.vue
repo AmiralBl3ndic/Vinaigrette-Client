@@ -9,12 +9,12 @@ export default {
   methods: {
     async showUsernameDialog () {
       const { value: pseudo } = await this.$swal({
-        title: 'Want a new username?',
+        title: 'what is your Username ?',
         input: 'text',
         inputPlaceholder: 'Enter your new username',
         inputValidator: (value) => {
           if (!value) {
-            return 'You need to write something!'
+            return 'You have to choose a username ! '
           }
         },
         showCloseButton: true

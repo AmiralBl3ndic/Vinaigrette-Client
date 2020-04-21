@@ -97,7 +97,7 @@ export default {
     sendMessage (text) {
       if (text.length > 0) {
         this.newMessagesCount = this.isChatOpen ? this.newMessagesCount : this.newMessagesCount + 1
-        this.onMessageWasSent({ author: 'me', type: 'text', data: { text } })
+        this.onMessageWasSent({ author: '', type: 'text', data: { text } })
       }
     },
     onMessageWasSent (message) {
