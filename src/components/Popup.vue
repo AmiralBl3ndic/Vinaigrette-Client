@@ -1,17 +1,17 @@
 <template>
   <div>
-  <button @click="showErrorAlert">Login</button>
+  <button @click="showUsernameDialog">Login</button>
   </div>
 </template>
 
 <script>
 export default {
   methods: {
-    async showErrorAlert (title, textContent) {
+    async showUsernameDialog () {
       const { value: pseudo } = await this.$swal({
-        title: 'want a new pseudo?',
+        title: 'Want a new username?',
         input: 'text',
-        inputPlaceholder: 'Enter your new pseudo',
+        inputPlaceholder: 'Enter your new username',
         inputValidator: (value) => {
           if (!value) {
             return 'You need to write something!'
@@ -20,7 +20,7 @@ export default {
         showCloseButton: true
       })
       if (pseudo) {
-        this.$socket.emit('set_username', { username: this.pseudo })
+        this.$socket.emit('set_username', { username: pseudo })
       }
     }
   }
