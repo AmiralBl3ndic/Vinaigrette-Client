@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-    <v-row class="text-center">
+  <div id="home-view">
+    <v-row class="text-center hero">
       <v-col cols="12" justify="center">
         <v-row align="center">
           <VinaigretteLogo :size="300" />
@@ -14,14 +14,14 @@
       </v-col>
     </v-row>
 
-    <v-container>
+    <div class="rooms">
       <RoomSelector />
-    </v-container>
+    </div>
 
-    <v-container fluid id="contribute">
+    <div class="links">
       <router-link to="contribute" class="title font-weight-regular light--text">Contribute to Vinaigrette</router-link>
-    </v-container>
-  </v-container>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -42,10 +42,40 @@ export default {
 }
 </script>
 
-<style scoped>
-#contribute {
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
+<style>
+#home-view {
+  box-sizing: border-box;
+  width: 100vw; max-width: 100vw;
+  height: 100%;
+
+  display: grid !important;
+
+  grid-template-areas:
+    "hero"
+    "rooms"
+    "links";
+
+  grid-template-rows: auto auto 40px;
+
+  overflow: hidden;
 }
+
+.hero {
+  grid-area: hero;
+}
+
+.rooms {
+  grid-area: rooms;
+}
+
+.links {
+  grid-area: links;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 2%;
+}
+
 </style>

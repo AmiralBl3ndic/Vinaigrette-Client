@@ -5,6 +5,7 @@
       color="primary"
       dark
       elevation="1"
+      id="appbar"
     >
       <div class="d-flex align-center">
         <VinaigretteLogo :size="40" transparent />
@@ -34,3 +35,9 @@ export default {
   })
 }
 </script>
+
+<style>
+#appbar {
+  max-width: 100vw;
+}
+</style>

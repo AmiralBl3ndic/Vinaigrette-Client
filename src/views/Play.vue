@@ -1,20 +1,27 @@
 <template>
-  <div class="fill-height d-flex">
+  <div id="play-view" class="fill-height d-flex">
 
-    <v-container class="fill-height d-flex flex-row justify-space-between" :class="{'align-end': !gameStarted}">
-      <div v-if="roundRunning" id="timer">
-        <span class="light--text">{{ remainingTime }}s remaining</span>
+    <div class="top-row mx-15">
+      <span v-if="roundRunning" class="light--text">{{ remainingTime }}s remaining</span>
+    </div>
+
+    <v-container class="content p0 flex-column">
+      <div class="sauce-zone">
+        <div class="sauce">
+          <ImageSauce v-if="displayImageSauce" />
+
+          <QuoteSauce v-if="displayQuoteSauce" />
+        </div>
+
+        <AnswerInputField v-if="gameStarted && !found" class="answerbox px-12" />
       </div>
 
-      <ImageSauce v-if="displayImageSauce" />
-      <QuoteSauce v-if="displayQuoteSauce" />
-
-      <AnswerInputField v-if="gameStarted && !found" />
-
-      <StartGameButton class="" />
+      <v-container>
+        <StartGameButton class="full-width" />
+      </v-container>
     </v-container>
 
-    <Scoreboard style="flex-basis: 300px" />
+    <Scoreboard class="scoreboard" />
   </div>
 </template>
 
@@ -84,9 +91,91 @@ export default {
 </script>
 
 <style>
-#timer {
-  position: absolute;
-  top: 10px;
-  left: 10px;
+#play-view {
+  box-sizing: border-box;
+  display: grid !important;
+
+  width: 100vw;
+  max-width: 100vw;
+
+  grid-template-areas:
+    "top-row scoreboard"
+    "content scoreboard";
+
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: 1fr 9fr;
+}
+
+.top-row {
+  grid-area: top-row;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  grid-area: content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 !important;
+}
+
+.sauce-zone {
+  height: 100%;
+  width: 100%; max-width: 100%;
+
+  display: grid;
+
+  grid-template-areas:
+    "sauce"
+    "answerbox";
+
+  grid-template-rows: 80% 20%;
+  justify-items: center;
+}
+
+.sauce {
+  grid-area: sauce;
+  width: 100%; max-width: 100%;
+  display: grid;
+  justify-items: center;
+}
+
+.answerbox {
+  grid-area: answerbox;
+}
+
+.scoreboard {
+  grid-area: scoreboard;
+  max-width: 100vw;
+}
+
+.maxw-100 {
+  max-width: 100vw;
+  padding: 0;
+}
+
+@media screen and (max-width: 780px) {
+  #play-view {
+    grid-template-areas:
+      "top-row"
+      "content"
+      "scoreboard";
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+
+  }
+}
+
+@media screen and (min-width: 781px) {
+  #play-view {
+    grid-template-rows: 1fr 9fr;
+    grid-template-columns: 75% 25%;
+  }
 }
 </style>
