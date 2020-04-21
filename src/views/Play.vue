@@ -22,8 +22,7 @@
     </v-container>
 
     <Scoreboard class="scoreboard" />
-    <Chat></Chat>
-
+    <Chat />
   </div>
 </template>
 

@@ -2,18 +2,36 @@
 
 <div>
     <beautiful-chat
-    :participants = "participants"
+    :participants = "roomParticipants"
     :onMessageWasSent = "onMessageWasSent"
     :messageList = "messageList"
     :newMessagesCount = "newMessagesCount"
     :isOpen = "isChatOpen"
     :close = "closeChat"
-    :icons = "icons"
     :open = "openChat"
     :colors = "colors"
     :alwaysScrollToBottom = "alwaysScrollToBottom"
     :messageStyling = "messageStyling"
-    />
+    >
+      <template v-slot:header>
+        <div class="d-flex align-center">
+          <span class="title">Chat room</span>
+        </div>
+      </template>
+
+      <template v-slot:user-avatar>
+        <div class="avatar d-none"></div>
+      </template>
+
+      <template v-slot:text-message-body="{ message }">
+        <div>
+          <span v-if="message.author !== 'me'" class="font-weight-bold mb-2">{{ message.author }}</span>
+          <div class="d-flex align-center body-2">
+            {{ message.data.text }}
+          </div>
+        </div>
+      </template>
+    </beautiful-chat>
 </div>
 </template>
 
@@ -101,5 +119,8 @@ export default {
 </script>
 
 <style>
-
+.avatar {
+  width: 0 !important;
+  height: 0 !important;
+}
 </style>
