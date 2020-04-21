@@ -14,7 +14,7 @@
         <AnswerInputField v-if="gameStarted && !found" class="align-self-end px-12" />
       </div>
 
-      <StartGameButton class="align-self-end" />
+      <StartGameButton class="align-self-end mx-12 start-game-button" />
     </v-container>
 
     <Scoreboard class="scoreboard" />
@@ -99,6 +99,7 @@ export default {
     "content scoreboard";
 
   grid-template-columns: 4fr 1fr;
+  grid-template-rows: 1fr 9fr;
 }
 
 .top-row {
@@ -145,13 +146,15 @@ export default {
       "scoreboard";
 
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+
   }
 }
 
 @media screen and (min-width: 781px) {
   #play-view {
     grid-template-rows: 1fr 9fr;
+    grid-template-columns: 75% 25%;
   }
 }
-
 </style>
