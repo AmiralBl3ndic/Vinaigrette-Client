@@ -56,8 +56,15 @@ export default {
     }
   },
 
+  sockets: {
+    newMessage: function (data) {
+      this.messageList = [...this.messageList, data]
+    }
+
+  },
+
   computed: {
-    room_participants () {
+    roomParticipants () {
       return this.$store.getters.chatParticipants
     }
   },
@@ -73,7 +80,7 @@ export default {
       // called when the user sends a message
       this.messageList = [...this.messageList, message]
 
-      this.$socket.emit('msg', message)
+      this.$socket.emit('chatmessage', message)
     },
     openChat () {
       // called when the user clicks on the fab button to open the chat
