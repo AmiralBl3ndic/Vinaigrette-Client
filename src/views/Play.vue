@@ -23,6 +23,7 @@
     </v-container>
 
     <Scoreboard class="scoreboard" />
+    <Chat />
   </div>
 </template>
 
@@ -33,6 +34,7 @@ import ImageSauce from '@/components/ImageSauce.vue'
 import QuoteSauce from '@/components/QuoteSauce.vue'
 import AnswerInputField from '@/components/AnswerInputField.vue'
 import SignalButton from '@/components/SignalButton.vue'
+import Chat from '@/components/Chat.vue'
 
 export default {
   name: 'Play',
@@ -43,7 +45,8 @@ export default {
     ImageSauce,
     QuoteSauce,
     AnswerInputField,
-    SignalButton
+    SignalButton,
+    Chat
   },
 
   data () {

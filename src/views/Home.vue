@@ -34,10 +34,6 @@ export default {
   components: {
     VinaigretteLogo,
     RoomSelector
-  },
-
-  mounted () {
-    this.$socket.emit('set_username', { username: 'Camille' })
   }
 }
 </script>
@@ -77,5 +73,4 @@ export default {
   padding-right: 2%;
   padding-bottom: 2%;
 }
-
 </style>

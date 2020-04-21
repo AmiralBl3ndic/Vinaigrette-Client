@@ -19,7 +19,7 @@
           </v-col>
         </v-row>
 
-        <v-row align="center form-field-wrapper px-12">
+        <v-row align="center" class="form-field-wrapper px-12">
           <v-text-field v-model="newRoomName" placeholder="Room name" outlined hide-details class="input" />
 
           <v-btn block type="submit" color="warning" class="d-flex align-center submit">

@@ -7,6 +7,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    username: '',
     rooms: [],
     currentRoom: '',
     scoreboard: [],
@@ -40,6 +41,10 @@ export default new Vuex.Store({
 
     chatParticipants (state) {
       return state.scoreboard.map(({ player }) => ({ id: player, name: player }))
+    },
+
+    username (state) {
+      return state.username
     }
   },
   mutations: {
@@ -69,6 +74,10 @@ export default new Vuex.Store({
 
     SET_RIGHT_ANSWER (state, payload) {
       state.rightAnswer = payload
+    },
+
+    SET_USERNAME (state, payload) {
+      state.username = payload
     }
   },
   actions: {
@@ -128,6 +137,17 @@ export default new Vuex.Store({
     /// Handles operations and mutations to perform when receiving the "right_answer" socket event
     SOCKET_right_answer ({ commit }, { answer }) {
       commit('SET_RIGHT_ANSWER', answer)
+    },
+
+    /// Handles operations and mutations to perform when receiving the "username_set" socket event
+    SOCKET_username_set ({ commit }, payload) {
+      commit('SET_USERNAME', payload)
+      Vue.$cookies.set('username', payload)
+    },
+
+    /// Handles operations and mutations to perform when receiving the "username_not_available" socket event
+    SOCKET_username_not_available ({ commit }, payload) {
+      commit('SET_USERNAME', '')
     }
   },
   modules: {
