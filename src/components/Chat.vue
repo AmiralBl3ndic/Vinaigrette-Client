@@ -84,6 +84,7 @@ export default {
           text: data.message
         }
       })
+      this.isChatOpen = true
     }
   },
 
