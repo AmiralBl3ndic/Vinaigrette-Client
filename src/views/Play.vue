@@ -5,16 +5,20 @@
       <span v-if="roundRunning" class="light--text">{{ remainingTime }}s remaining</span>
     </div>
 
-    <v-container class="content p0">
+    <v-container class="content p0 flex-column">
       <div class="sauce-zone">
-        <ImageSauce v-if="displayImageSauce" class="maxw-100" />
+        <div class="sauce">
+          <ImageSauce v-if="displayImageSauce" />
 
-        <QuoteSauce v-if="displayQuoteSauce" />
+          <QuoteSauce v-if="displayQuoteSauce" />
+        </div>
 
-        <AnswerInputField v-if="gameStarted && !found" class="align-self-end px-12" />
+        <AnswerInputField v-if="gameStarted && !found" class="answerbox px-12" />
       </div>
 
-      <StartGameButton class="align-self-end mx-12 start-game-button" />
+      <v-container>
+        <StartGameButton class="full-width" />
+      </v-container>
     </v-container>
 
     <Scoreboard class="scoreboard" />
@@ -121,11 +125,28 @@ export default {
 }
 
 .sauce-zone {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   height: 100%;
-  width: 100%;
+  width: 100%; max-width: 100%;
+
+  display: grid;
+
+  grid-template-areas:
+    "sauce"
+    "answerbox";
+
+  grid-template-rows: 80% 20%;
+  justify-items: center;
+}
+
+.sauce {
+  grid-area: sauce;
+  width: 100%; max-width: 100%;
+  display: grid;
+  justify-items: center;
+}
+
+.answerbox {
+  grid-area: answerbox;
 }
 
 .scoreboard {
