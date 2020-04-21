@@ -22,6 +22,8 @@
     </v-container>
 
     <Scoreboard class="scoreboard" />
+    <Chat v-if="gameStarted && !found"/>
+
   </div>
 </template>
 
@@ -31,6 +33,7 @@ import StartGameButton from '@/components/StartGameButton.vue'
 import ImageSauce from '@/components/ImageSauce.vue'
 import QuoteSauce from '@/components/QuoteSauce.vue'
 import AnswerInputField from '@/components/AnswerInputField.vue'
+import Chat from '@/components/Chat.vue'
 
 export default {
   name: 'Play',
@@ -40,7 +43,8 @@ export default {
     StartGameButton,
     ImageSauce,
     QuoteSauce,
-    AnswerInputField
+    AnswerInputField,
+    Chat
   },
 
   data () {

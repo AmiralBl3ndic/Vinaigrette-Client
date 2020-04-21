@@ -26,7 +26,7 @@ export default {
       participants: [], // name, id
       messageList: [], // the list of the messages to show, can be paginated and adjusted dynamically
       newMessagesCount: 0,
-      isChatOpen: false, // to determine whether the chat window should be open or closed
+      isChatOpen: true, // to determine whether the chat window should be open or closed
       colors: {
         header: {
           bg: '#4e8cff',
@@ -57,10 +57,16 @@ export default {
   },
 
   sockets: {
-    newMessage: function (data) {
-      this.messageList = [...this.messageList, data]
+    chat (data) {
+      this.messageList.push({
+        id: Date.now(),
+        author: this.$store.getters.username === data.username ? 'me' : data.username,
+        type: 'text',
+        data: {
+          text: data.message
+        }
+      })
     }
-
   },
 
   computed: {
@@ -73,14 +79,12 @@ export default {
     sendMessage (text) {
       if (text.length > 0) {
         this.newMessagesCount = this.isChatOpen ? this.newMessagesCount : this.newMessagesCount + 1
-        this.onMessageWasSent({ author: '', type: 'text', data: { text } })
+        this.onMessageWasSent({ author: 'me', type: 'text', data: { text } })
       }
     },
     onMessageWasSent (message) {
       // called when the user sends a message
-      this.messageList = [...this.messageList, message]
-
-      this.$socket.emit('chatmessage', message)
+      this.$socket.emit('chat', message.data.text)
     },
     openChat () {
       // called when the user clicks on the fab button to open the chat
