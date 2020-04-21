@@ -42,10 +42,11 @@ export default {
         inputPlaceholder: 'Enter your new username',
         inputValidator: (value) => {
           if (!value) {
-            return 'You need to write something!'
+            return 'You must choose a username'
           }
         },
-        showCloseButton: true
+        showCloseButton: false,
+        allowOutsideClick: false
       })
       if (pseudo) {
         this.$socket.emit('set_username', { username: pseudo })
@@ -56,7 +57,7 @@ export default {
   mounted () {
     const usernameFromCoookie = this.$cookies.get('username')
 
-    if (usernameFromCoookie) {
+    if (usernameFromCoookie) { // If a username was stored in the cookies
       this.$socket.emit('set_username', { username: usernameFromCoookie })
     } else {
       this.showUsernameDialog()
@@ -64,8 +65,8 @@ export default {
   },
 
   sockets: {
-    username_not_available () {
-      this.showUsernameDialog()
+    username_not_available (username) {
+      this.showUsernameDialog(`Sorry, "${username}" is not available for the moment`)
     }
   }
 }
