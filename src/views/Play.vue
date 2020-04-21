@@ -11,7 +11,7 @@
 
         <QuoteSauce v-if="displayQuoteSauce" />
 
-        <AnswerInputField v-if="gameStarted && !found" class="align-self-end" />
+        <AnswerInputField v-if="gameStarted && !found" class="align-self-end px-12" />
       </div>
 
       <StartGameButton class="align-self-end" />

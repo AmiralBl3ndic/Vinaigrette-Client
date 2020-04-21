@@ -4,8 +4,9 @@
       app
       color="primary"
       dark
-      elevation="1">
-
+      elevation="1"
+      id="appbar"
+    >
       <div class="d-flex align-center">
         <VinaigretteLogo :size="40" transparent />
         <router-link to="/"><h1 class="ml-2 white--text">Vinaigrette</h1></router-link>
@@ -45,3 +46,9 @@ export default {
   })
 }
 </script>
+
+<style>
+#appbar {
+  max-width: 100vw;
+}
+</style>
