@@ -6,6 +6,8 @@
       </template>
       <v-card>
         <v-card-title class="headline grey lighten-2" primary-title>Login</v-card-title>
+        <input v-model="username" placeholder="votre username">
+        <button type="button" v-on:click="login()">Login</button>
       </v-card>
     </v-dialog>
   </div>
