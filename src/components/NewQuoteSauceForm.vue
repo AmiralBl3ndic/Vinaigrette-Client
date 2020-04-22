@@ -26,9 +26,12 @@
       type="submit"
       color="accent"
       class="ml-8"
-      :disabled="!quote || !answer"
+      :disabled="!quote || !answer || submitted"
       large>
-      Submit this quote
+      <span v-if="!submitted">Submit this quote</span>
+      <span v-if="submitted">
+        <v-progress-circular indeterminate />
+      </span>
     </v-btn>
   </v-form>
 </template>
@@ -42,7 +45,8 @@ export default {
   data () {
     return {
       quote: '',
-      answer: ''
+      answer: '',
+      submitted: false
     }
   },
 
@@ -71,12 +75,20 @@ export default {
     },
 
     async handleSubmission () {
+      if (!this.quote || !this.answer || this.submitted) {
+        return
+      }
+
+      this.submitted = true
+
       try {
         await this.$http.post(quoteAPIUrl, { quote: this.quote, answer: this.answer })
         this.showSuccess('Quote submitted!')
         this.$refs.quoteForm.reset()
       } catch (_) {
         this.showError('An error occurred', 'Unable to submit form')
+      } finally {
+        this.submitted = false
       }
     }
   }
