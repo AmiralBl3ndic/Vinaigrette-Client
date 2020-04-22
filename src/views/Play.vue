@@ -1,10 +1,16 @@
 <template>
   <div id="play-view" class="fill-height d-flex">
 
-    <div class="top-row mx-15">
-      <SignalButton @report="() => {this.saucereported = true}" v-show="gameStarted && !saucereported" class="signal_button" />
-      <span v-if="roundRunning" class="light--text">{{ remainingTime }}s remaining</span>
-    </div>
+    <v-layout wrap my-2>
+      <v-flex xs4 px-2>
+        <SignalButton @report="() => {this.saucereported = true}" :show="gameStarted && !saucereported" class="signal_button" />
+        <p v-show="gameStarted && saucereported" class="signal_button px-2"> Thank you for your report </p>
+      </v-flex>
+      <v-flex xs4 class = "d-flex justify-center">
+        <span v-if="roundRunning" class="light--text">{{ remainingTime }}s remaining</span>
+      </v-flex>
+      <v-flex xs4> </v-flex>
+    </v-layout>
 
     <v-container class="content p0 flex-column">
       <div class="sauce-zone">
