@@ -1,5 +1,5 @@
 <template>
-  <v-btn v-if="!gameStarted" color="accent" block class="py-8 title" @click.prevent="sendStartGameSignal">
+  <v-btn v-if="!gameStarted" color="accent" block class="d-flex flex-column justify-center py-8 title" @click.prevent="sendStartGameSignal">
     Start Game
   </v-btn>
 </template>

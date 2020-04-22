@@ -29,7 +29,7 @@
     </v-container>
 
     <Scoreboard class="scoreboard" />
-    <Chat />
+    <Chat class="hide-on-small-screens" />
   </div>
 </template>
 
@@ -41,6 +41,8 @@ import QuoteSauce from '@/components/QuoteSauce.vue'
 import AnswerInputField from '@/components/AnswerInputField.vue'
 import SignalButton from '@/components/SignalButton.vue'
 import Chat from '@/components/Chat.vue'
+
+const vinaigretteLogoUrl = require('../assets/vinaigrette-logo.svg')
 
 export default {
   name: 'Play',
@@ -66,11 +68,11 @@ export default {
 
   computed: {
     displayImageSauce () {
-      return this.$store.getters.currentSauceType === 'image'
+      return this.gameStarted && this.$store.getters.currentSauceType === 'image'
     },
 
     displayQuoteSauce () {
-      return this.$store.getters.currentSauceType === 'quote'
+      return this.gameStarted && this.$store.getters.currentSauceType === 'quote'
     },
 
     gameStarted () {
@@ -95,6 +97,18 @@ export default {
 
     good_answer () {
       this.found = true
+    },
+
+    player_won ({ username, score }) {
+      this.$swal({
+        titleText: `${username} won!`,
+        text: `${username} scored ${score} points`,
+        imageUrl: vinaigretteLogoUrl,
+        imageHeight: 200,
+        imageWidth: 200,
+        imageAlt: 'Vinaigrette logo',
+        animation: true
+      })
     }
   },
 
@@ -182,7 +196,10 @@ export default {
 
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
+  }
 
+  .hide-on-small-screens {
+    display: none;
   }
 }
 
