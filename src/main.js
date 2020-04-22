@@ -22,7 +22,7 @@ Vue.config.productionTip = false
 Vue.use(Vuex)
 
 Vue.use(new VueSocketIO({
-  debug: false,
+  debug: true,
   connection: serverUrl,
   vuex: {
     store,
