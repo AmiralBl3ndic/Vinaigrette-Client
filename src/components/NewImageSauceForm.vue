@@ -35,9 +35,12 @@
       type="submit"
       color="accent"
       class="ml-8"
-      :disabled="!file || !answer"
+      :disabled="!file || !answer || submitted"
       large>
-      Submit this image
+      <span v-if="!submitted">Submit this image</span>
+      <span v-if="submitted">
+        <v-progress-circular indeterminate />
+      </span>
     </v-btn>
   </v-form>
 </template>
@@ -52,7 +55,8 @@ export default {
     return {
       file: [],
       answer: '',
-      imagePreview: ''
+      imagePreview: '',
+      submitted: false
     }
   },
 
@@ -97,9 +101,11 @@ export default {
     },
 
     async handleSubmission () {
-      if (!this.file || !this.answer) {
+      if (!this.file || !this.answer || this.submitted) {
         return
       }
+
+      this.submitted = true
 
       try {
         const formData = new FormData()
@@ -114,6 +120,8 @@ export default {
         this.imagePreview = ''
       } catch (_) {
         this.showError('Something went wrong', 'Unable to add image sauce')
+      } finally {
+        this.submitted = false
       }
     }
   }
