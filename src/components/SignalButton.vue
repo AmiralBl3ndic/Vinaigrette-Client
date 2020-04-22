@@ -17,7 +17,7 @@ export default {
 
   methods: {
     sendSignal () {
-      // this.$socket.emit('report_sauce')
+      this.$socket.emit('report_sauce')
       this.$emit('report')
     }
   }
