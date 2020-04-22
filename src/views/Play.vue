@@ -36,6 +36,8 @@ import AnswerInputField from '@/components/AnswerInputField.vue'
 import SignalButton from '@/components/SignalButton.vue'
 import Chat from '@/components/Chat.vue'
 
+const vinaigretteLogoUrl = require('../assets/vinaigrette-logo.svg')
+
 export default {
   name: 'Play',
 
@@ -89,6 +91,18 @@ export default {
 
     good_answer () {
       this.found = true
+    },
+
+    player_won ({ username, score }) {
+      this.$swal({
+        titleText: `${username} won!`,
+        text: `${username} scored ${score} points`,
+        imageUrl: vinaigretteLogoUrl,
+        imageHeight: 200,
+        imageWidth: 200,
+        imageAlt: 'Vinaigrette logo',
+        animation: true
+      })
     }
   },
 
