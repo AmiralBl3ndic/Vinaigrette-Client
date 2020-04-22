@@ -23,7 +23,7 @@
     </v-container>
 
     <Scoreboard class="scoreboard" />
-    <Chat />
+    <Chat class="hide-on-small-screens" />
   </div>
 </template>
 
@@ -190,7 +190,10 @@ export default {
 
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
+  }
 
+  .hide-on-small-screens {
+    display: none;
   }
 }
 
