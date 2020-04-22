@@ -62,11 +62,11 @@ export default {
 
   computed: {
     displayImageSauce () {
-      return this.$store.getters.currentSauceType === 'image'
+      return this.gameStarted && this.$store.getters.currentSauceType === 'image'
     },
 
     displayQuoteSauce () {
-      return this.$store.getters.currentSauceType === 'quote'
+      return this.gameStarted && this.$store.getters.currentSauceType === 'quote'
     },
 
     gameStarted () {
