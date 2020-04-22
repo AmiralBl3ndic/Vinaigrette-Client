@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container v-if="$store.state.canAnswer">
     <v-form ref="answerInputForm" @submit.prevent="tryAnswer" autocomplete="off">
       <v-text-field
         v-model="answer"
@@ -21,6 +21,7 @@ export default {
 
   methods: {
     tryAnswer () {
+      if (!this.answer) return
       this.$socket.emit('sauce_answer', this.answer)
       this.$refs.answerInputForm.reset()
     }
